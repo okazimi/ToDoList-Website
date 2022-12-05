@@ -1,0 +1,86 @@
+.center {
+  display: block;
+  text-align: center;
+}
+
+
+/* NAVIGATION BAR CSS*/
+.navbar {
+    display: block;
+}
+
+
+.navbar .container-fluid {
+    display: block;
+}
+
+
+.navbar-logo {
+    margin: 25px 0px 25px 0px;
+}
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #61764B !important;
+}
+
+
+.navbar-text-1 {
+    color: #61764B;
+}
+
+
+/* REGISTER PAGE CSS */
+.register-div {
+    text-align: center;
+}
+
+
+#sign-me-up-button {
+    margin: 20px auto;
+}
+
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 1.2rem;
+}
+
+
+#register-header {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+/* LOGIN PAGE CSS */
+.login-div {
+    text-align: center;
+}
+
+
+#login-header {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+/* HOME PAGE CSS */
+.todolistitemcontainer{
+    margin-top: 15px;
+}
+
+
+#todolistitem {
+    text-align: center;
+}
+
+
+#delete-item {
+    background-color: white;
+    color: #61764B;
+    font-weight: 500;
+    font-family: cursive;
+}

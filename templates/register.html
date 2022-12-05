@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- FLASH MESSAGES AND REGISTER HEADER -->
+<div class="register-div">
+	<h3 id="register-header">Sign up below to save your To Do List!</h3>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- FORM FOR REGISTERING USER -->
+    <form action="{{ url_for('register') }}" method="post">
+        <table>
+            <tr>
+                <td>
+    	            <input type="text" name="first_name" placeholder="First Name" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="last_name" placeholder="Last Name" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+		            <input type="email" name="email" placeholder="Email" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" name="password" placeholder="Password" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="sign-me-up-button" type="submit" class="btn btn-primary btn-block btn-large">Register</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+{% endblock %}

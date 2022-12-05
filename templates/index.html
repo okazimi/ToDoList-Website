@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+
+{% block title %}
+The TDL
+{% endblock %}
+
+
+{% block content %}
+    <div>
+        <!-- FLASH MESSAGES -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- FORM TO ADD NEW TODOLIST ITEMS -->
+        <form action="{{ url_for('home') }}" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" name="content" placeholder="Content" required="required">
+                        <input type="text" name="date" placeholder="MM/DD/YYYY" required="required">
+                        <button id="add-item" type="submit" class="btn btn-primary">Add</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+        <!-- RETRIEVE PREVIOUSLY CREATE TO DO LIST ITEMS -->
+        {% for item in toDoListItems %}
+        <div class="container todolistitemcontainer">
+            <div class="row align-items-center">
+                <div class="col-sm-3"></div>
+                <div id="todolistitem" class="col-sm-6">
+                    <h3>{{ item.content }}  |  {{ item.date }} <a href="{{ url_for('deleteToDoListItem', item_id=item.id) }}" id="delete-item" class="button">x</a></h3>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        {% endfor %}
+
+{% endblock %}
+

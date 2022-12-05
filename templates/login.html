@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<!-- FLASH MESSAGES AND LOGIN HEADER -->
+<div class="login-div">
+	<h3 id="login-header">Welcome Back</h3>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- LOGIN FORM -->
+    <form action="{{ url_for('login') }}" method="post">
+        <table>
+            <tr>
+                <td>
+		            <input type="email" name="email" placeholder="Email" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" name="password" placeholder="Password" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="login-button" type="submit" class="btn btn-primary btn-block btn-large">Login</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+{% endblock %}
